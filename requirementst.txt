@@ -1,0 +1,8 @@
+pyodbc
+load_env
+langchain-community==0.0.33
+langchain-openai==0.1.6
+langchain==0.1.14
+langchain_text_splitters
+faiss-cpu
+PyPDF
