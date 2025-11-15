@@ -26,7 +26,11 @@ llm = ChatOpenAI(model="gpt-4.1", temperature=0)
 
 
 ## processing Policy RAG + FAISS
-pdf_folder = r"C:\AgenticAI\Projects_AgentAI\AgenticAI_04_companypolicy\pdf files"
+
+#pdf_folder = r"C:\AgenticAI\Projects_AgentAI\AgenticAI_04_companypolicy\pdf_files"
+current_dir = os.path.dirname(os.path.abspath(__file__))
+pdf_folder = os.path.abspath(os.path.join(current_dir, "..", "..", "pdf_files"))
+
 pdf_files = [os.path.join(pdf_folder, f) for f in os.listdir(pdf_folder) if f.endswith(".pdf")] ## collect all PDF files
 docs = []
 for file in pdf_files:
@@ -49,7 +53,8 @@ def run_sql_query(query: str):
     """ execute the sql query"""
 
     # SQL server connection details
-    server = r"DESKTOP-6SIQQDV\INSTANCE2022"
+    server = r"DESKTOP-6SIQQDV" ## DESKTOP-6SIQQDV\INSTANCE2022
+    # server = "192.168.10.36"    
     database = "ABC_Company"
     username = "sa"
     password = "Sagar@12"
